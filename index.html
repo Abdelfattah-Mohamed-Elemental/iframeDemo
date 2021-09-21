@@ -12,9 +12,17 @@
 
 <button onclick="myFunction()">Try it</button>
 
+<div class="result"></div>
+
 <script>
 function myFunction() {
-  alert("heeloo");
+  let result = document.querySelector(".result");
+  x = 5;
+  y =2;
+  let p = document.createElement("p");
+  p.innerHTML = x + y;
+  result.appendChild(p);
+  
 }
 </script>
 
