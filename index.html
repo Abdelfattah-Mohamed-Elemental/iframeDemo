@@ -36,8 +36,38 @@
 <button onclick="myFunction()">Try it</button>
 
 <div class="result"></div>
-
 <script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "7b5f42b8-ea24-47f0-a646-c1a1f4e41b54", // The ID of this integration.
+        region: "eu-gb", // The region your integration is hosted in.
+        serviceInstanceID: "70483e32-ea33-430e-aff8-e7a4eca8bd90", // The ID of your service instance.
+        onLoad: function(instance) { instance.render(); }
+      };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+        (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+        "/WatsonAssistantChatEntry.js"
+      document.head.appendChild(t);
+    });
+    // New Method Test
+    const sendObject = {
+    "input": {
+        "message_type": "text",
+        "text": "apartment"
+    }
+    };
+    const sendOptions = {
+    "silent": false
+    }
+    instance.send(sendObject, sendOptions).catch(function(error) {
+    console.error('This message did not send!');
+    });
+
+
+  </script>
+<!--
+    <script>
 function myFunction() {
   let result = document.querySelector(".result");
   x = 5;
@@ -48,8 +78,7 @@ function myFunction() {
 
 }
 </script>
-
-
+-->
 
 
 
@@ -90,34 +119,6 @@ function myFunction() {
       <span class="dot" onclick="currentSlide(2)"></span> 
       <span class="dot" onclick="currentSlide(3)"></span> 
     </div>
-    <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
-        
-        function plusSlides(n) {
-          showSlides(slideIndex += n);
-        }
-        
-        function currentSlide(n) {
-          showSlides(slideIndex = n);
-        }
-        
-        function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-          if (n > slides.length) {slideIndex = 1}    
-          if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";  
-          }
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-        }
-        </script>
-      -->
+-->
     </body>
 </html>
