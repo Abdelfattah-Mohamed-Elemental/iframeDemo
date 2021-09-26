@@ -44,14 +44,14 @@
         onLoad: function(instance) { instance.render(); }
       };
       // New Method
-      const mockSendObject = {
+      const sendObject = {
       "input": {
         "message_type": "text",
         "text": "apartment"
         }
       };
       const sendOptions = {
-        "silent": true
+        "silent": false
       }
       instance.send(sendObject, sendOptions).catch(function(error) {
         console.error('This message did not send!');
